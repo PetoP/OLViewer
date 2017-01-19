@@ -1,0 +1,22 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#lista {
+    position: absolute;
+    bottom: 0;
+    height: 25px;
+    width: 100%;
+    background: black;
+}
+
+#map {
+    position: absolute;
+    bottom: 25px;
+    height: 100%;
+    width: 100%;
+}
