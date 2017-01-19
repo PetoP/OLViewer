@@ -6,17 +6,58 @@ body {
     width: 100%;
 }
 
+#map {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    bottomn: 1.5em;
+    background: #EFEFEF;
+}
+
+p {
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
 #lista {
     position: absolute;
     bottom: 0;
-    height: 25px;
+    height: 1.5em;
     width: 100%;
-    background: black;
+    background: #343131;/* #2980B9; */
 }
 
-#map {
+.zoom {
     position: absolute;
-    bottom: 25px;
+    left: 0;
+    top: 10%;
+    width: 1em;
+    height: 80%;
+    background: #2980B9;
+}
+
+#zoomout {
+    left: 1.2em;
+}
+
+#suradnice {
+    position: absolute;
+    left: 3em;
+    width: 10em;
     height: 100%;
-    width: 100%;
+    /* background: red; */
+}
+
+.suradnica {
+    position: absolute;
+    left: 1.2em;
+    width: 3em;
+    bottom: 0;
+    height: 100%;
+    /* background: green; */
+}
+
+#Y {
+    left: 6.5em;
 }

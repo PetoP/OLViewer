@@ -4,14 +4,25 @@
     <meta charset="UTF-8" />
     <title>OutLander</title>
     <link rel="stylesheet" href="style.css" type="text/css">
-    <link rel="stylesheet" href="https://openlayers.org/en/v3.20.1/css/ol.css" type="text/css">
-    <script src="https://openlayers.org/en/v3.20.1/build/ol-debug.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.15/proj4.js"></script>
+    <!-- <link rel="stylesheet" href="https://openlayers.org/en/v3.20.1/css/ol.css" type="text/css"> -->
+    <!-- <script src="https://openlayers.org/en/v3.20.1/build/ol-debug.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.15/proj4.js"></script> -->
+    <link rel="stylesheet" href="./ol.css" type="text/css">
+    <script src="./ol-debug.js"></script>
+    <script src="./proj4-src.js"></script>
 </head>
 
 <body>
     <div id="map" name="map"></div>
-    <div id="lista"></div>
+    <div id="lista">
+      <div id="zoomin" class="zoom"><p align="center">➕</p></div>
+      <div id="zoomout" class="zoom"><p align="center">－</p></div>
+        <div id="suradnice">
+            <p>φ:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;°&nbsp;&nbsp;&nbsp;λ:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;°</p>
+            <div id="x" class="suradnica"></div>
+            <div id="y" class="suradnica"></div>
+        </div>
+    </div>
     <script src="map.js"></script>
 </body>
 
