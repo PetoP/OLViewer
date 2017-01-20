@@ -12,12 +12,19 @@ body {
     position: relative;
     bottomn: 1.5em;
     background: #EFEFEF;
+    cursor: crosshair;
 }
 
 p {
     color: white;
     margin: 0;
     padding: 0;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 #lista {
@@ -35,6 +42,7 @@ p {
     width: 1em;
     height: 80%;
     background: #2980B9;
+    cursor: pointer;
 }
 
 #zoomout {
@@ -46,6 +54,7 @@ p {
     left: 3em;
     width: 10em;
     height: 100%;
+    cursor: default;
     /* background: red; */
 }
 
@@ -58,6 +67,24 @@ p {
     /* background: green; */
 }
 
-#Y {
+#x {
     left: 6.5em;
+}
+
+#wrs {
+    position: absolute;
+    left: 14em;
+    height: 90%;
+    cursor: pointer;
+}
+
+#utm {
+    position: absolute;
+    left: 17.5em;
+    height: 90%;
+    cursor: pointer;
+}
+
+.tlac_text {
+    color: #717171;
 }

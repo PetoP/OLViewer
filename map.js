@@ -1,15 +1,83 @@
 // geojson s hranicou SR
 var hranica = new ol.layer.Vector({
     source: new ol.source.Vector({
-        url: "./data/hranica.geojson",
+        url: "./data/hranica_simple.geojson",
         format: new ol.format.GeoJSON()
     }),
     style: new ol.style.Style({
         stroke: new ol.style.Stroke({
-            color: "#2980B9",
+            color: "#343131",
             width: 1
         })
     })
+});
+
+// geojson s WRS2
+var getWrsText = function(feature) {
+    return "P:" + feature.get("PATH") + "\nR:" + feature.get("ROW");
+};
+
+var wrsStyle = function(feature) {
+    return new ol.style.Style({
+        stroke: new ol.style.Stroke({
+            color: "#2980B9",
+            width: 1
+        }),
+        text: new ol.style.Text({
+            fill: new ol.style.Fill({
+                color: "#2980B9"
+            }),
+            stroke: new ol.style.Stroke({
+                color: "white",
+                width: 2
+            }),
+            textAlign: "center",
+            text: getWrsText(feature)
+        })
+    });
+};
+
+var wrs = new ol.layer.Vector({
+    source: new ol.source.Vector({
+        url: "./data/WRS2.geojson",
+        format: new ol.format.GeoJSON()
+    }),
+    style: wrsStyle,
+    visible: false
+});
+
+// geojson s UTM grid
+var getUtmText = function(feature) {
+    return feature.get("name");
+};
+
+var utmStyle = function(feature) {
+    return new ol.style.Style({
+        stroke: new ol.style.Stroke({
+            color: "#5C9632",
+            width: 1
+        }),
+        text: new ol.style.Text({
+            fill: new ol.style.Fill({
+                color: "#5C9632"
+            }),
+            stroke: new ol.style.Stroke({
+                color: "white",
+                width: 2
+            }),
+            textAlign: "center",
+            text: getUtmText(feature)
+        })
+    });
+};
+
+var utm = new ol.layer.Vector({
+    source: new ol.source.Vector({
+        url: "./data/UTM.geojson",
+        format: new ol.format.GeoJSON()
+    }),
+    style: utmStyle,
+    visible: false
 });
 
 // definície projekcií
@@ -27,13 +95,15 @@ var lccsk = new ol.proj.Projection({
     extent: [-196375.44, 5919135.26, 224971.35, 6127760.38]
 });
 
-var proj = tm33n;
+// var proj = tm33n;
+var proj = "EPSG:3857";
 
 // nastavenie pohľadu
 var view = new ol.View({
     center: ol.proj.transform([17.9047990517937, 48.4608516791396], "EPSG:4326", proj),
     // extent: [-196375.44, 5919135.26, 224971.35, 6127760.38],
     zoom: 8,
+    minZoom: 7,
     projection: proj
 });
 
@@ -44,59 +114,21 @@ hranica.on("change", function() {
 // mapa
 var map = new ol.Map({
     layers: [
-        hranica
+        hranica,
+        wrs,
+        utm
     ],
     target: "map",
     view: view,
     controls: []
 });
 
-
-// objekt na uchovávanie a vypisovanie informácií do lišty
-var trayInfo = {
-    position_: [0, 0],
-    print: function() {
-        var x = Math.round(this.position_[0] * 1000) / 1000;
-        var y = Math.round(this.position_[1] * 1000) / 1000;
-        if ((x * 1000) % 10 == 0) {
-            if ((x * 1000) % 1000 == 0) {
-                x = x + ".000";
-            } else if ((x * 1000) % 100 == 0) {
-                x = x + "00";
-            } else {
-                x = x + "0";
-            }
-        }
-        if ((y * 1000) % 10 == 0) {
-            if ((y * 1000) % 1000 == 0) {
-                y = y + ".000";
-            } else if ((y * 1000) % 100 == 0) {
-                y = y + "00";
-            } else {
-                y = y + "0";
-            }
-        }
-        document.getElementById("x").innerHTML = "<p>" + x + "</p>";
-        document.getElementById("y").innerHTML = "<p>" + y + "</p>";
-        document.getElementById("x").innerHTML = document.getElementById("x").innerHTML.replace(".", ",");
-        document.getElementById("y").innerHTML = document.getElementById("x").innerHTML.replace(".", ",");
-    },
-    setPosition: function(position) {
-        this.position_ = position;
-        this.print();
-    }
-};
-
-trayInfo.print();
-map.on("pointermove", function(e) {
-    trayInfo.setPosition(ol.proj.transform(map.getCoordinateFromPixel(e.pixel), view.getProjection(), "EPSG:4326"));
-});
-
-// funkcie zoomovacích tlačítiek
-// TODO: dorob efekt pohybu
-document.getElementById("zoomin").onclick = function() {
-    view.setZoom(view.getZoom() + 1);
-};
-document.getElementById("zoomout").onclick = function() {
-    view.setZoom(view.getZoom() - 1);
-};
+// mriežka
+// new ol.Graticule({
+//     map: map,
+//     targetSize: 400,
+//     strokeStyle: new ol.style.Stroke({
+//         color: "#2980B9",
+//         width: 0.3
+//     })
+// });
