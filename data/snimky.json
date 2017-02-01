@@ -1,0 +1,29 @@
+{
+    "snimky": [
+        {
+            "date": "16.4.2016",
+            "stellite": "L",
+            "RGBurl": "./data/rgb_snimky/LC8_16_04_2016/"
+        },
+        {
+            "date": "19.6.2016",
+            "stellite": "L",
+            "RGBurl": "./data/rgb_snimky/LC8_19_06_2016/"
+        },
+        {
+            "date": "2.7.2016",
+            "stellite": "S",
+            "RGBurl": "./data/rgb_snimky/S2A_02_07_2016:10/"
+        },
+        {
+            "date": "21.7.2016",
+            "stellite": "L",
+            "RGBurl": "./data/rgb_snimky/LC8_21_07_2016/"
+        },
+        {
+            "date": "7.9.2016",
+            "stellite": "L",
+            "RGBurl": "./data/rgb_snimky/LC8_07_09_2016/"
+        }
+    ]
+}

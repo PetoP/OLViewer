@@ -7,9 +7,7 @@
     <link rel="stylesheet" href="https://openlayers.org/en/v3.20.1/css/ol.css" type="text/css">
     <script src="https://openlayers.org/en/v3.20.1/build/ol-debug.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.15/proj4.js"></script>
-    <!-- <link rel="stylesheet" href="./ol.css" type="text/css"> -->
-    <!-- <script src="./ol-debug.js"></script> -->
-    <!-- <script src="./proj4-src.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -24,6 +22,11 @@
         </div>
         <div id="wrs"><p id="wrst" class="tlac_text">WRS2</p></div>
         <div id="utm"><p id="utmt" class="tlac_text">UTM</p></div>
+        <div id="datumVyber">
+          <div id="datumMenej" class="datumTlacitka"><p class="datumTlacitka" id="datumMenejTlac">‹‹</p></div>
+          <div id="sucasnyDatum"><p id="sucasnyDatumText"></p></div>
+          <div id="datumViac" class="datumTlacitka"><p class="datumTlacitka" id="datumViacTlac">››</p></div>
+        </div>
     </div>
     <script src="map.js"></script>
     <script src="tray.js"></script>

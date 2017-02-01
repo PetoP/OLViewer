@@ -80,6 +80,15 @@ var utm = new ol.layer.Vector({
     visible: false
 });
 
+// XYZ s RGB
+var XYZSource = new ol.source.XYZ({
+    url: null
+});
+
+var XYZLyr = new ol.layer.Tile({
+    source: XYZSource
+});
+
 // definície projekcií
 proj4.defs("EPSG:32633", "+proj=utm +zone=33 +datum=WGS84 +units=m +no_defs");
 proj4.defs("SK_LCC", "+proj=lcc +lat_1=48 +lat_2=49.333333 +lon_0=19.4849068946685 +ellps=WGS84 +datum=WGS84 +units=m +no_defs");
@@ -104,6 +113,7 @@ var view = new ol.View({
     // extent: [-196375.44, 5919135.26, 224971.35, 6127760.38],
     zoom: 8,
     minZoom: 7,
+    maxZoom: 13,
     projection: proj
 });
 
@@ -116,7 +126,8 @@ var map = new ol.Map({
     layers: [
         hranica,
         wrs,
-        utm
+        utm,
+        XYZLyr
     ],
     target: "map",
     view: view,

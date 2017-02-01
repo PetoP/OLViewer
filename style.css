@@ -32,7 +32,8 @@ p {
     bottom: 0;
     height: 1.5em;
     width: 100%;
-    background: #343131;/* #2980B9; */
+    background: #343131;
+    /* #2980B9; */
 }
 
 .zoom {
@@ -87,4 +88,37 @@ p {
 
 .tlac_text {
     color: #717171;
+}
+
+#datumVyber {
+    position: absolute;
+    left: 21em;
+    height: 100%;
+    width: 7.2em;
+}
+
+.datumTlacitka {
+    position: absolute;
+    cursor: pointer;
+    height: 90%;
+    width: 1.5em;
+}
+
+#datumViac {
+    left: 6.5em;
+}
+
+#sucasnyDatum {
+    position: absolute;
+    left: 1em;
+    top: 10%;
+    height: 90%;
+    width: 5.2em;
+    text-align: center;
+    cursor: default;
+}
+
+#sucasnyDatumText {
+    height: 90%;
+    cursor: default;
 }
