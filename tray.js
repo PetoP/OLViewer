@@ -13,6 +13,9 @@ var trayInfo = {
     // poradové číslo scény v liste
     sceneId_: 0,
 
+    // raster mode
+    rasterMode_: "RGB",
+
     // vypíše pozíciu kurzora
     printCoordinates: function() {
         var x = Math.round(this.position_[0] * 1000) / 1000;
@@ -52,6 +55,9 @@ var trayInfo = {
         this.jsonData_ = data;
         this.jsonLoaded_ = true;
         this.setScene(data.snimky.length - 1);
+
+        // nastavenie rastru
+        trayInfo.changeRaster("VHOD");
     },
 
     // váráti súčasnú scény
@@ -62,7 +68,7 @@ var trayInfo = {
     // nastaví novú scénu
     changeSceneData: function() {
         document.getElementById("sucasnyDatumText").innerHTML = this.getScene().date;
-        XYZSource.setUrl(this.getScene().RGBurl + "{z}/{x}/{-y}.png");
+        this.changeRaster(this.rasterMode_);
         map.renderSync();
     },
 
@@ -97,9 +103,52 @@ var trayInfo = {
         if (this.jsonLoaded_ && this.sceneId_ + 1 == this.jsonData_.snimky.length) {
             document.getElementById("datumViacTlac").style.color = "#717171";
         }
+    },
+
+    // vráti mód rastra
+    getRasterMode: function() {
+        return this.rasterMode_;
+    },
+
+    // nastavenie zobrazovaného rastra
+    changeRaster: function(rasterType) {
+        var rasterTypes = ["RGB", "LC", "VHOD", "ALB"];
+        if (rasterTypes.indexOf(rasterType) >= 0) {
+            var url;
+            var urlsufix = "{z}/{x}/{-y}.png";
+
+            switch (rasterType) {
+            case "RGB":
+                url = this.getScene().RGBurl;
+                break;
+
+            case "LC":
+                url = this.getScene().LCurl;
+                break;
+
+            case "VHOD":
+                url = this.getScene().VHODurl;
+                break;
+
+            case "ALB":
+                url = this.getScene().ALBurl;
+                break;
+            }
+
+            XYZSource.setUrl(url + urlsufix);
+            this.rasterMode_ = rasterType;
+
+            var color;
+            for (var i = 0; i < rasterTypes.length; i++) {
+                if (rasterTypes[i] == rasterType) {
+                    color = "white";
+                } else {
+                    color = "#717171";
+                }
+                document.getElementById(rasterTypes[i] + "Tlac").style.color = color;
+            }
+        }
     }
-
-
 };
 
 trayInfo.printCoordinates();
@@ -167,3 +216,9 @@ document.getElementById("datumMenejTlac").onclick = function() {
 document.getElementById("datumViacTlac").onclick = function() {
     trayInfo.dateForward();
 };
+
+// tlačítka nastavenia rastra
+document.getElementById("RGBTlac").onclick = function() {trayInfo.changeRaster("RGB");};
+document.getElementById("LCTlac").onclick = function() {trayInfo.changeRaster("LC");};
+document.getElementById("VHODTlac").onclick = function() {trayInfo.changeRaster("VHOD");};
+document.getElementById("ALBTlac").onclick = function() {trayInfo.changeRaster("ALB");};

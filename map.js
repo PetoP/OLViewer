@@ -125,9 +125,9 @@ hranica.on("change", function() {
 var map = new ol.Map({
     layers: [
         hranica,
+        XYZLyr,
         wrs,
-        utm,
-        XYZLyr
+        utm
     ],
     target: "map",
     view: view,

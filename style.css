@@ -63,9 +63,8 @@ p {
     position: absolute;
     left: 1.2em;
     width: 3em;
-    bottom: 0;
+    top: 5%;
     height: 100%;
-    /* background: green; */
 }
 
 #x {
@@ -75,6 +74,7 @@ p {
 #wrs {
     position: absolute;
     left: 14em;
+    top: 5%;
     height: 90%;
     cursor: pointer;
 }
@@ -82,6 +82,7 @@ p {
 #utm {
     position: absolute;
     left: 17.5em;
+    top: 5%;
     height: 90%;
     cursor: pointer;
 }
@@ -92,7 +93,7 @@ p {
 
 #datumVyber {
     position: absolute;
-    left: 21em;
+    left: 20.5em;
     height: 100%;
     width: 7.2em;
 }
@@ -121,4 +122,39 @@ p {
 #sucasnyDatumText {
     height: 90%;
     cursor: default;
+}
+
+#vyberRastra {
+    position: absolute;
+    left: 28.5em;
+    width: 9em;
+    height: 100%;
+    cursor: default;
+}
+
+.vyberRastraTlac {
+    position: absolute;
+    height: 80%;
+    top: 5%;
+    cursor: pointer;
+    color: #717171;
+}
+
+#RGB {
+    width: 2em;
+}
+
+#LC {
+    left: 2.3em;
+    width: 1.3em;
+}
+
+#VHOD {
+    left: 3.9em;
+    width: 2.4em;
+}
+
+#ALB {
+    left: 7.1em;
+    width: 2em;
 }
