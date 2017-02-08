@@ -25,6 +25,7 @@ p {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    font-family: Dejavu Sans;
 }
 
 #lista {
@@ -64,16 +65,16 @@ p {
     left: 1.2em;
     width: 3em;
     top: 5%;
-    height: 100%;
+    height: 90%;
 }
 
 #x {
-    left: 6.5em;
+    left: 6.8em;
 }
 
 #wrs {
     position: absolute;
-    left: 14em;
+    left: 15em;
     top: 5%;
     height: 90%;
     cursor: pointer;
@@ -81,7 +82,7 @@ p {
 
 #utm {
     position: absolute;
-    left: 17.5em;
+    left: 18.5em;
     top: 5%;
     height: 90%;
     cursor: pointer;
@@ -93,7 +94,7 @@ p {
 
 #datumVyber {
     position: absolute;
-    left: 20.5em;
+    left: 21.5em;
     height: 100%;
     width: 7.2em;
 }
@@ -126,7 +127,7 @@ p {
 
 #vyberRastra {
     position: absolute;
-    left: 28.5em;
+    left: 29.5em;
     width: 9em;
     height: 100%;
     cursor: default;
@@ -157,4 +158,13 @@ p {
 #ALB {
     left: 7.1em;
     width: 2em;
+}
+
+#kappa {
+    position: absolute;
+    height: 80%;
+    width: 4em;
+    left: 39.5em;
+    top: 5%;
+    /* background: red; */
 }

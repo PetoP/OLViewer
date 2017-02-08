@@ -68,6 +68,7 @@ var trayInfo = {
     // nastaví novú scénu
     changeSceneData: function() {
         document.getElementById("sucasnyDatumText").innerHTML = this.getScene().date;
+        document.getElementById("kappaText").innerHTML = "κ: " + Math.round(this.getScene().kappa * 100) / 100;
         this.changeRaster(this.rasterMode_);
         map.renderSync();
     },
