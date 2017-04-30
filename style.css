@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "Local DejaVuSans";
+    src: url("./ext_libs/DejaVuSans.ttf") format("truetype")
+}
+
 html,
 body {
     margin: 0;
@@ -25,7 +30,8 @@ p {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    font-family: Dejavu Sans;
+    font-family: "Local DejaVuSans";
+    font-size: 14.5;
 }
 
 #lista {
@@ -34,7 +40,6 @@ p {
     height: 1.5em;
     width: 100%;
     background: #343131;
-    /* #2980B9; */
 }
 
 .zoom {
@@ -88,13 +93,22 @@ p {
     cursor: pointer;
 }
 
+#power {
+    position: absolute;
+    left: 21em;
+    top: 5%;
+    height: 90%;
+    cursor: pointer;
+}
+
+
 .tlac_text {
     color: #717171;
 }
 
 #datumVyber {
     position: absolute;
-    left: 21.5em;
+    left: 22.5em;
     height: 100%;
     width: 7.2em;
 }
@@ -127,7 +141,7 @@ p {
 
 #vyberRastra {
     position: absolute;
-    left: 29.5em;
+    left: 30.5em;
     width: 9em;
     height: 100%;
     cursor: default;
@@ -160,11 +174,53 @@ p {
     width: 2em;
 }
 
-#kappa {
+#f {
     position: absolute;
     height: 80%;
     width: 4em;
-    left: 39.5em;
+    left: 40em;
     top: 5%;
-    /* background: red; */
+}
+
+#otvor_legendu {
+    position: absolute;
+    top: 0;
+    height: 1.5em;
+    width: 6.5cm;
+    background: #343131;
+    cursor: pointer;
+    text-align: center;
+}
+
+#legend_tlac {
+    margin-top: 2px;
+}
+
+#legend {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 6.5cm;
+    background: #343131;
+    overflow: auto;
+}
+
+.nadpis_legendy {
+    margin-top: 2em;
+    margin-left: 1em;
+}
+
+.polozky_vysvetliviek {
+    margin-left: 1em;
+    margin-top: 0.5em;
+}
+
+.polozka_vysvetliviek {
+    width: 1em;
+    backgroud: red;
+}
+
+.polozka_vysvetliviek_text {
+    font-size: 10;
+    margin-left: 0.5em;
 }

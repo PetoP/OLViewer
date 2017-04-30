@@ -54,7 +54,7 @@ var trayInfo = {
     setJsonData: function(data) {
         this.jsonData_ = data;
         this.jsonLoaded_ = true;
-        this.setScene(data.snimky.length - 1);
+        this.setScene(data.rastre.length - 1);
 
         // nastavenie rastru
         trayInfo.changeRaster("VHOD");
@@ -62,13 +62,13 @@ var trayInfo = {
 
     // váráti súčasnú scény
     getScene: function() {
-        return this.jsonData_.snimky[this.sceneId_];
+        return this.jsonData_.rastre[this.sceneId_];
     },
 
     // nastaví novú scénu
     changeSceneData: function() {
         document.getElementById("sucasnyDatumText").innerHTML = this.getScene().date;
-        document.getElementById("kappaText").innerHTML = "κ: " + Math.round(this.getScene().kappa * 100) / 100;
+        document.getElementById("fText").innerHTML = "F: " + this.getScene().f;
         this.changeRaster(this.rasterMode_);
         map.renderSync();
     },
@@ -95,13 +95,13 @@ var trayInfo = {
 
     // pridaj dátum
     dateForward: function() {
-        if (this.jsonLoaded_ && this.sceneId_ + 1 < this.jsonData_.snimky.length) {
+        if (this.jsonLoaded_ && this.sceneId_ + 1 < this.jsonData_.rastre.length) {
             this.sceneId_++;
             this.changeSceneData();
             document.getElementById("datumMenejTlac").style.color = "white";
         }
 
-        if (this.jsonLoaded_ && this.sceneId_ + 1 == this.jsonData_.snimky.length) {
+        if (this.jsonLoaded_ && this.sceneId_ + 1 == this.jsonData_.rastre.length) {
             document.getElementById("datumViacTlac").style.color = "#717171";
         }
     },
@@ -192,6 +192,10 @@ document.getElementById("utm").onclick = function() {
     utm.setVisible(!utm.getVisible());
 };
 
+document.getElementById("power").onclick = function() {
+    power.setVisible(!power.getVisible());
+};
+
 utm.on("change:visible", function() {
     var color;
     if (utm.getVisible() == true) {
@@ -202,12 +206,24 @@ utm.on("change:visible", function() {
     document.getElementById("utmt").style.color = color;
 });
 
+power.on("change:visible", function() {
+    var color;
+    if (power.getVisible() == true) {
+        color = "#DC322F";
+    } else {
+        color = "#717171";
+    }
+    document.getElementById("powert").style.color = color;
+});
+
+power.setVisible(true);
+
 // čítanie json-u s údajmi o rastroch
-$.getJSON("./data/snimky.json", function(data) {
+$.getJSON("./data/rastre.json", function(data) {
     trayInfo.setJsonData(data);
 })
     .fail(function() {
-        alert("Unable to read ./data/snimky.json!");
+        alert("Unable to read ./data/rastre.json!");
     });
 
 // nastavovanie dátumu

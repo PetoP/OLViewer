@@ -4,14 +4,167 @@
     <meta charset="UTF-8" />
     <title>OutLander</title>
     <link rel="stylesheet" href="style.css" type="text/css">
-    <link rel="stylesheet" href="https://openlayers.org/en/v3.20.1/css/ol.css" type="text/css">
-    <script src="https://openlayers.org/en/v3.20.1/build/ol-debug.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.15/proj4.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./ext_libs/ol.css" type="text/css">
+    <script src="./ext_libs/ol-debug.js"></script>
+    <script src="./ext_libs/proj4.js"></script>
+    <script src="./ext_libs/jquery.min.js"></script>
 </head>
 
 <body>
     <div id="map" name="map"></div>
+
+    <div id="legend">
+      <p align="left" class="nadpis_legendy">Triedy krajinnej pokrývky</p>
+      <table id="vys_kraj_pok" class="polozky_vysvetliviek">
+        <tr>
+          <td class="polozka_vysvetliviek" bgcolor="#006000"></td>
+          <td><p class="polozka_vysvetliviek_text">les</p></td>
+        </tr>
+        <tr>
+          <td class="polozka_vysvetliviek" bgcolor="#008cfe"></td>
+          <td><p class="polozka_vysvetliviek_text">voda</p></td>
+        </tr>
+        <tr>
+          <td class="polozka_vysvetliviek" bgcolor="#b70000"></td>
+          <td><p class="polozka_vysvetliviek_text">umelé plochy</p></td>
+        </tr>
+        <tr>
+          <td class="polozka_vysvetliviek" bgcolor="#83d183"></td>
+          <td><p class="polozka_vysvetliviek_text">nízke porasty a trávy</p></td>
+        </tr>
+        <tr>
+          <td class="polozka_vysvetliviek" bgcolor="#c9b590"></td>
+          <td><p class="polozka_vysvetliviek_text">holá zem</p></td>
+        </tr>
+        <tr>
+          <td class="polozka_vysvetliviek" bgcolor="#ebeaf4"></td>
+          <td><p class="polozka_vysvetliviek_text">oblačnosť</p></td>
+        </tr>
+        <tr>
+          <td class="polozka_vysvetliviek" bgcolor="#000000"></td>
+          <td><p class="polozka_vysvetliviek_text">tiene</p></td>
+        </tr>
+        <tr>
+          <td class="polozka_vysvetliviek" bgcolor="#7eae54"></td>
+          <td><p class="polozka_vysvetliviek_text">obilniny zelené</p></td>
+        </tr>
+        <tr>
+          <td class="polozka_vysvetliviek" bgcolor="#e4eb13"></td>
+          <td><p class="polozka_vysvetliviek_text">obilniny svetlé</p></td>
+        </tr>
+        <tr>
+          <td class="polozka_vysvetliviek" bgcolor="#678f45"></td>
+          <td><p class="polozka_vysvetliviek_text">kukurica</p></td>
+        </tr>
+        <tr>
+          <td class="polozka_vysvetliviek" bgcolor="#b7b700"></td>
+          <td><p class="polozka_vysvetliviek_text">slnečnica</p></td>
+        </tr>
+        <tr>
+          <td class="polozka_vysvetliviek" bgcolor="#d59739"></td>
+          <td><p class="polozka_vysvetliviek_text">repa</p></td>
+        </tr>
+        <tr>
+          <td class="polozka_vysvetliviek" bgcolor="#517c2c"></td>
+          <td><p class="polozka_vysvetliviek_text">repka oziminna zelená</p></td>
+        </tr>
+        <tr>
+          <td class="polozka_vysvetliviek" bgcolor="#cbce10"></td>
+          <td><p class="polozka_vysvetliviek_text">repka oziminna svetlá</p></td>
+        </tr>
+      </table>
+
+      <p align="left" class="nadpis_legendy">Triedy vhodnosti</p>
+      <table id="vys_kraj_pok" class="polozky_vysvetliviek">
+        <tr>
+          <td class="polozka_vysvetliviek" bgcolor="#b70000"></td>
+          <td><p class="polozka_vysvetliviek_text">umelé plochy</p></td>
+        </tr>
+        <tr>
+          <td class="polozka_vysvetliviek" bgcolor="#e4f6b6"></td>
+          <td><p class="polozka_vysvetliviek_text">pre pristátie vhodné</p></td>
+        </tr>
+        <tr>
+          <td class="polozka_vysvetliviek" bgcolor="#f5c291"></td>
+          <td><p class="polozka_vysvetliviek_text">pre pristátie neisté</p></td>
+        </tr>
+        <tr>
+          <td class="polozka_vysvetliviek" bgcolor="#ce655a"></td>
+          <td><p class="polozka_vysvetliviek_text">pre pristátie nevhodné</p></td>
+        </tr>
+        <tr>
+          <td class="polozka_vysvetliviek" bgcolor="#006000"></td>
+          <td><p class="polozka_vysvetliviek_text">les</p></td>
+        </tr>
+        <tr>
+          <td class="polozka_vysvetliviek" bgcolor="#008cfe"></td>
+          <td><p class="polozka_vysvetliviek_text">voda</p></td>
+        </tr>
+        <tr>
+          <td class="polozka_vysvetliviek" bgcolor="#ebeaf4"></td>
+          <td><p class="polozka_vysvetliviek_text">oblačnosť</p></td>
+        </tr>
+      </table>
+
+      <p align="left" class="nadpis_legendy">Albedo</p>
+      <table id="vys_kraj_pok" class="polozky_vysvetliviek">
+        <tr>
+          <td class="polozka_vysvetliviek" bgcolor="#1e5cb3"></td>
+          <td><p class="polozka_vysvetliviek_text">≤ 0,025</p></td>
+        </tr>
+        <tr>
+          <td class="polozka_vysvetliviek" bgcolor="#176fc1"></td>
+          <td><p class="polozka_vysvetliviek_text">(0,025 - 0,050〉</p></td>
+        </tr>
+        <tr>
+          <td class="polozka_vysvetliviek" bgcolor="#0b8ed8"></td>
+          <td><p class="polozka_vysvetliviek_text">(0,050 - 0,075〉</p></td>
+        </tr>
+        <tr>
+          <td class="polozka_vysvetliviek" bgcolor="#19b5f1"></td>
+          <td><p class="polozka_vysvetliviek_text">(0,075 - 0,100〉</p></td>
+        </tr>
+        <tr>
+          <td class="polozka_vysvetliviek" bgcolor="#66ccce"></td>
+          <td><p class="polozka_vysvetliviek_text">(0,100 - 0,125〉</p></td>
+        </tr>
+        <tr>
+          <td class="polozka_vysvetliviek" bgcolor="#99dbb8"></td>
+          <td><p class="polozka_vysvetliviek_text">(0,125 - 0,150〉</p></td>
+        </tr>
+        <tr>
+          <td class="polozka_vysvetliviek" bgcolor="#cce64b"></td>
+          <td><p class="polozka_vysvetliviek_text">(0,150 - 0,175〉</p></td>
+        </tr>
+        <tr>
+          <td class="polozka_vysvetliviek" bgcolor="#f3f01d"></td>
+          <td><p class="polozka_vysvetliviek_text">(0,175 - 0,200〉</p></td>
+        </tr>
+        <tr>
+          <td class="polozka_vysvetliviek" bgcolor="#fede27"></td>
+          <td><p class="polozka_vysvetliviek_text">(0,200 - 0,225〉</p></td>
+        </tr>
+        <tr>
+          <td class="polozka_vysvetliviek" bgcolor="#f89d0e"></td>
+          <td><p class="polozka_vysvetliviek_text">(0,225 - 0,250〉</p></td>
+        </tr>
+        <tr>
+          <td class="polozka_vysvetliviek" bgcolor="#f1471c"></td>
+          <td><p class="polozka_vysvetliviek_text">(0,250 - 0,275〉</p></td>
+        </tr>
+        <tr>
+          <td class="polozka_vysvetliviek" bgcolor="#db1e26"></td>
+          <td><p class="polozka_vysvetliviek_text">(0,275 - 0,300〉</p></td>
+        </tr>
+        <tr>
+          <td class="polozka_vysvetliviek" bgcolor="#a4262c"></td>
+          <td><p class="polozka_vysvetliviek_text">> 0,300</p></td>
+        </tr>
+      </table>
+    </div>
+
+    <div id="otvor_legendu"><p id="legend_tlac" class="tlac_text">Vysvetlivky</p></div>
+
     <div id="lista">
       <div id="zoomin" class="zoom"><p align="center">➕</p></div>
       <div id="zoomout" class="zoom"><p align="center">－</p></div>
@@ -22,6 +175,7 @@
         </div>
         <div id="wrs"><p id="wrst" class="tlac_text">WRS2</p></div>
         <div id="utm"><p id="utmt" class="tlac_text">UTM</p></div>
+        <div id="power"><p id="powert" class="tlac_text">↯</p></div>
         <div id="datumVyber">
           <div id="datumMenej" class="datumTlacitka"><p class="datumTlacitka" id="datumMenejTlac">‹‹</p></div>
           <div id="sucasnyDatum"><p id="sucasnyDatumText"></p></div>
@@ -33,10 +187,11 @@
           <div id="VHOD" class="vyberRastraTlac"><p id="VHODTlac" class="vyberRastraTlac">VHOD</p></div>
           <div id="ALB" class="vyberRastraTlac"><p id="ALBTlac" class="vyberRastraTlac">ALB</p></div>
         </div>
-        <div id="kappa"><p id="kappaText"></p></div>
+        <div id="f"><p id="fText"></p></div>
     </div>
     <script src="map.js"></script>
     <script src="tray.js"></script>
+    <script src="legend.js"></script>
 </body>
 
 </html>

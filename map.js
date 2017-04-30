@@ -6,10 +6,25 @@ var hranica = new ol.layer.Vector({
     }),
     style: new ol.style.Style({
         stroke: new ol.style.Stroke({
-            color: "#343131",
+            color: "#CB4B16",
             width: 1
         })
     })
+});
+
+// geojson s el. vedením
+var power = new ol.layer.Vector({
+    source: new ol.source.Vector({
+        url: "./data/powerline.geojson",
+        format: new ol.format.GeoJSON()
+    }),
+    style: new ol.style.Style({
+        stroke: new ol.style.Stroke({
+            color: "#343131",
+            width: 1
+        })
+    }),
+    visible: false
 });
 
 // geojson s WRS2
@@ -126,6 +141,7 @@ var map = new ol.Map({
     layers: [
         hranica,
         XYZLyr,
+        power,
         wrs,
         utm
     ],

@@ -1,49 +1,49 @@
 {
-    "snimky": [
+    "rastre": [
         {
             "date": "16.4.2016",
             "stellite": "L",
-            "RGBurl": "./data/rgb_snimky/LC8_16_04_2016/",
+            "RGBurl": "./data/rgb_rastre/LC8_16_04_2016/",
             "LCurl": "./data/lc_rastre/lc_160416/",
-            "VHODurl": "./data/rgb_snimky/LC8_16_04_2016/",
+            "VHODurl": "./data/rgb_rastre/LC8_16_04_2016/",
             "ALBurl": "./data/alb_rastre/alb_160416/",
-            "kappa": 0.9471
+            "f": 0.957
         },
         {
             "date": "19.6.2016",
             "stellite": "L",
-            "RGBurl": "./data/rgb_snimky/LC8_19_06_2016/",
+            "RGBurl": "./data/rgb_rastre/LC8_19_06_2016/",
             "LCurl": "./data/lc_rastre/lc_190616/",
-            "VHODurl": "./data/rgb_snimky/LC8_19_06_2016/",
+            "VHODurl": "./data/rgb_rastre/LC8_19_06_2016/",
             "ALBurl": "./data/alb_rastre/alb_190616/",
-            "kappa": 0.88281
+            "f": 0.858
         },
         {
             "date": "2.7.2016",
             "stellite": "S",
-            "RGBurl": "./data/rgb_snimky/S2A_02_07_2016:10/",
+            "RGBurl": "./data/rgb_rastre/S2A_02_07_2016:10/",
             "LCurl": "./data/lc_rastre/lc_020716/",
-            "VHODurl": "./data/rgb_snimky/S2A_02_07_2016:10/",
+            "VHODurl": "./data/rgb_rastre/S2A_02_07_2016:10/",
             "ALBurl": "./data/alb_rastre/alb_020716/",
-            "kappa": 0.784278
+            "f": 0.852
         },
         {
             "date": "21.7.2016",
             "stellite": "L",
-            "RGBurl": "./data/rgb_snimky/LC8_21_07_2016/",
+            "RGBurl": "./data/rgb_rastre/LC8_21_07_2016/",
             "LCurl": "./data/lc_rastre/lc_210716/",
-            "VHODurl": "./data/rgb_snimky/LC8_21_07_2016/",
+            "VHODurl": "./data/rgb_rastre/LC8_21_07_2016/",
             "ALBurl": "./data/alb_rastre/alb_210716/",
-            "kappa": 0.777724
+            "f": 0.914
         },
         {
             "date": "7.9.2016",
             "stellite": "L",
-            "RGBurl": "./data/rgb_snimky/LC8_07_09_2016/",
+            "RGBurl": "./data/rgb_rastre/LC8_07_09_2016/",
             "LCurl": "./data/lc_rastre/lc_070916/",
-            "VHODurl": "./data/rgb_snimky/LC8_07_09_2016/",
+            "VHODurl": "./data/rgb_rastre/LC8_07_09_2016/",
             "ALBurl": "./data/alb_rastre/alb_070916/",
-            "kappa": 0.870999
+            "f": 0.929
         }
     ]
 }
