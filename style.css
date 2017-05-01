@@ -186,7 +186,7 @@ p {
     position: absolute;
     top: 0;
     height: 1.5em;
-    width: 6.5cm;
+    width: 6.75cm;
     background: #343131;
     cursor: pointer;
     text-align: center;
@@ -200,7 +200,7 @@ p {
     position: absolute;
     top: 0;
     height: 100%;
-    width: 6.5cm;
+    width: 6.75cm;
     background: #343131;
     overflow: auto;
 }
@@ -223,4 +223,10 @@ p {
 .polozka_vysvetliviek_text {
     font-size: 10;
     margin-left: 0.5em;
+}
+
+#zdroj {
+    font-size: 9;
+    margin-top: 2em;
+    margin-left: 1em;
 }

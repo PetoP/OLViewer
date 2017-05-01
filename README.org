@@ -1,0 +1,7 @@
+* About webpage
+
+This webpage serves for browsing results of methodology of land evaluation for glider outlanding. Allows to browse different dates while each sensing date stores RGB image, landcover raster, raster of suitability for outlansing and albedo raster.
+
+* Data adition
+
+To convert multispectral Landsat 8 and Sentinel-2 images, landcover, suitabilit and albedo rasters to tiled layers, use skripts/import_maps. After that, insert new entry in data/rastre.json.
